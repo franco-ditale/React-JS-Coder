@@ -2,14 +2,12 @@ import {
     Box,
     Flex,
     Avatar,
-    Text,
     Button,
     Menu,
     MenuButton,
     MenuList,
     MenuItem,
     MenuDivider,
-    useDisclosure,
     useColorModeValue,
     Stack,
     useColorMode,
@@ -25,7 +23,7 @@ import {
       <>
         <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
           <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-            <Box fontSize={"20px"}>PipoShop </Box>
+            <Box fontSize={"20px"}>PipoShop</Box>
             <Flex alignItems={"center"}>
               <Stack direction={"row"} spacing={7}>
                 <CartWidget/>

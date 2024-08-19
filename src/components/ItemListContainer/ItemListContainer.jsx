@@ -8,6 +8,7 @@ const ItemListContainer = ({ greeting }) => {
       display={"flex"}
       alignItems={"center"}
       justifyContent={"center"}
+      fontSize={"20px"}
     >
       {greeting}
     </Box>
