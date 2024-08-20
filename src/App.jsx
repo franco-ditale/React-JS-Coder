@@ -7,7 +7,7 @@ function App() {
   return (
     <ChakraProvider>
       <Navbar/>
-      <ItemListContainer greeting={"Hola Soy Franco Ditale. Esta es mi PreEntrega1"}/>
+      <ItemListContainer greeting={"Hola Soy Franco Ditale. Esta es mi PreEntrega1."}/>
     </ChakraProvider>
   );
 }
