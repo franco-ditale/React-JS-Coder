@@ -31,7 +31,7 @@ import {
                   {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
                 </Button>
    
-                <Menu>
+                {/* <Menu>
                   <MenuButton
                     as={Button}
                     rounded={"full"}
@@ -64,7 +64,8 @@ import {
                     <MenuItem>Account Settings</MenuItem>
                     <MenuItem>Logout</MenuItem>
                   </MenuList>
-                </Menu>
+                </Menu> */}
+                
               </Stack>
             </Flex>
           </Flex>
