@@ -1,7 +1,7 @@
 import { Flex, Text } from "@chakra-ui/react";
 import { BsMinecart } from "react-icons/bs";
 
-const CartWidget = () => {
+export const CartWidget = () => {
   return (
     <Flex
       alignItems={"center"}
@@ -15,4 +15,3 @@ const CartWidget = () => {
   );
 };
 
-export default CartWidget;
