@@ -22,7 +22,7 @@ function App() {
             <Spinner size="xl" />
           </Flex>
         ) : (
-          <ItemListContainer products={productsData} />
+          <ItemListContainer products={productData} />
         )}
       </MainLayout>
     </ChakraProvider>
