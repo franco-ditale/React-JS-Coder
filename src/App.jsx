@@ -3,7 +3,6 @@ import { ItemListContainer } from "./components";
 import MainLayout from "./layout/MainLayout";
 import { useProducts, useProductsById } from "./hooks";
 
-
 function App() {
 
   const { productsData, loading } = useProducts();
@@ -22,7 +21,7 @@ function App() {
             <Spinner size="xl" />
           </Flex>
         ) : (
-          <ItemListContainer products={productData} />
+          <ItemListContainer products={productsData} />
         )}
       </MainLayout>
     </ChakraProvider>

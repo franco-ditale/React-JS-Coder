@@ -9,7 +9,7 @@ export const CartWidget = () => {
       justifyContent={"space-between"}
       width={"60px"}
     >
-      <BsMinecart size={25} />
+      <BsMinecart size={30} />
       <Text fontSize={"1.5rem"}>0</Text>
     </Flex>
   );

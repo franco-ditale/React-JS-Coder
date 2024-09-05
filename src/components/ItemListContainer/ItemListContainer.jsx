@@ -13,8 +13,6 @@ import {
 } from "@chakra-ui/react";
 
 export const ItemListContainer = ({ products }) => {
-  
-
   return (
     <Box display={"flex"} flexWrap={"wrap"}>
       {products.map((product) => (

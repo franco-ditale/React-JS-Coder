@@ -23,7 +23,7 @@ export const Navbar = () => {
     <>
       <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-          <Box fontSize={"20px"}>PipoShop</Box>
+          <Box>PipoStore</Box>
           <Flex alignItems={"center"}>
             <Stack direction={"row"} spacing={7}>
               <CartWidget />
@@ -44,8 +44,6 @@ export const Navbar = () => {
                     src={"https://avatars.dicebear.com/api/male/username.svg"}
                   />
                 </MenuButton>
-
-
                 <MenuList alignItems={"center"}>
                   <br />
                   <Center>
@@ -65,7 +63,6 @@ export const Navbar = () => {
                   <MenuItem>Logout</MenuItem>
                 </MenuList>
               </Menu>
-
             </Stack>
           </Flex>
         </Flex>
