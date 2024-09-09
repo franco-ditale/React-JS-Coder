@@ -18,6 +18,6 @@ export const Item = () => {
       <Spinner size="xl" />
     </Flex>
   ) : (
-    <ItemDetailContainer product={productData}/>
+    <ItemDetailContainer product={productData} />
   );
 };
