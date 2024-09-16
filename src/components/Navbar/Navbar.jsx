@@ -21,7 +21,7 @@ import { useCategory } from "../../hooks";
 export const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
-  const {category} = useCategory();
+  const { category } = useCategory();
 
   return (
     <>
@@ -29,17 +29,18 @@ export const Navbar = () => {
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <Box>
             <Link to="/">
-            PipoStore
+              PipoStore
             </Link>
           </Box>
           <Box alignContent={"flex-start"} width={"100%"} marginLeft={30}>
             <Menu>
+              {/* <Link to="/events" style={{ marginLeft: 30 }}>Eventos</Link> */}
               <MenuButton as={Link} cursor="pointer" marginLeft={30}>
                 Dynamic Menu
               </MenuButton>
               <MenuList height={"200px"} overflowY={"scroll"}>
                 {category.map((category) => (
-                  <MenuItem key={category.slug}><Link to = {`/category/${category.slug}`}>{category.name}</Link></MenuItem>
+                  <MenuItem key={category.slug}><Link to={`/category/${category.slug}`}>{category.name}</Link></MenuItem>
                 ))}
               </MenuList>
             </Menu>

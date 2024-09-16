@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Category, Home, Item } from "../pages";
+import { Category, Home, Item, Events } from "../pages";
 import { Navbar } from "../components";
 
 export const MainRouter = () => {
@@ -12,6 +12,8 @@ export const MainRouter = () => {
         <Route path="/" element={<Home />} />
         <Route path="/item/:id" element={<Item />} />
         <Route path="/category/:categoryId" element={<Category />} />
+        {/* <Route path="/events" element={<Events handleClick={() => alert('Click')} />} /> */}
+        <Route path="/events" element={<Events label="Events" />} />
       </Routes>
     </BrowserRouter>
   );
