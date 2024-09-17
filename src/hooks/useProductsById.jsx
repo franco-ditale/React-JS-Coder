@@ -1,22 +1,22 @@
-import { useState, useEffect } from "react";
-import { getProductById } from "../services/products";
+import React from "react";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
 export const useProductsById = (id) => {
-  const [productData, setProductData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [product, setProduct] = React.useState({});
+  const [loading, setLoading] = React.useState(true);
 
-  useEffect(() => {
-    getProductById(id)
-      .then((res) => {
-        setProductData(res.data);
+  React.useEffect(() => {
+    const productItem = doc(db, "products", id);
+    getDoc(productItem)
+      .then((snapshot) => {
+        setProduct({ id: snapshot.id, ...snapshot.data() });
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        console.log(error);
       })
-      .finally(() => {
-        setLoading(false);
-      });
+      .finally(() => setLoading(false));
   }, []);
 
-  return { productData, loading };
+  return { product, loading };
 };
