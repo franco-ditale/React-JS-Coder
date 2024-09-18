@@ -17,6 +17,7 @@ import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { CartWidget } from "../CartWidget";
 import { Link } from "react-router-dom";
 import { useCategory } from "../../hooks";
+import { createProductsFirestore } from "../../helpers";
 
 export const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -44,6 +45,7 @@ export const Navbar = () => {
                 ))}
               </MenuList>
             </Menu>
+            <Button onClick={() => createProductsFirestore('products')}>Crear productos</Button>
           </Box>
           <Flex alignItems={"center"}>
             <Stack direction={"row"} spacing={7}>

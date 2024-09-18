@@ -9,7 +9,7 @@ export const useProducts = () => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    const productsCollection = collection(db, "product");
+    const productsCollection = collection(db, "products");
     getDocs(productsCollection)
       .then((snapshot) => {
         setProductsData(
