@@ -3,16 +3,16 @@ import { collection , getDocs} from "firebase/firestore";
 import { db } from "../firebase";
 
 
-export const useProducts = () => {
-  const [productsData, setProductsData] = useState([]);
+export const useItemsCollection = (categoryName) => {
+  const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    const productsCollection = collection(db, "products");
-    getDocs(productsCollection)
+    const itemsCollection = collection(db, categoryName);
+    getDocs(itemsCollection)
       .then((snapshot) => {
-        setProductsData(
+        setItems(
           snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
         );
       })
@@ -20,5 +20,5 @@ export const useProducts = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  return { productsData, loading, error };
+  return { items, loading, error };
 };
