@@ -16,69 +16,87 @@ import { Link } from "react-router-dom";
 
 export const ItemListContainer = ({ products }) => {
   return (
-    <Box p={6}>
-      <Grid
-        templateColumns="repeat(4, 1fr)" 
-        gap={6}
-        justifyContent="center"
-        alignItems="stretch" 
-      >
+    <Box
+      p={8}
+      bgGradient="linear(to-r, teal.900, cyan.900, blue.800)"
+      backgroundImage="url('https://www.transparenttextures.com/patterns/dark-matter.png')"
+      backgroundSize="cover"
+      backgroundPosition="center"
+      minH="100vh"
+    >
+     
+      <Grid templateColumns="repeat(4, 1fr)" gap={8} justifyContent="center" alignItems="stretch">
         {products.map((product) => (
           <Card
             key={product.id}
-            boxShadow="0 4px 15px rgba(0, 0, 0, 0.2)"
+            boxShadow="0 8px 24px rgba(0, 0, 0, 0.3)"
             borderRadius="lg"
-            transition="transform 0.3s ease, box-shadow 0.3s ease"
-            _hover={{
-              transform: "translateY(-10px)",
-              boxShadow: "0 8px 30px rgba(0, 0, 0, 0.3)",
-            }}
-            bg="rgba(255, 255, 255, 0.1)"
-            backdropFilter="blur(10px)"
+            transition="transform 0.4s ease, box-shadow 0.4s ease"
+            _hover={{ transform: "translateY(-12px)", boxShadow: "0 12px 40px rgba(0, 0, 0, 0.5)" }}
+            bgGradient="linear(to-r, teal.400, cyan.600)"
             display="flex"
-            flexDirection="column" 
-            minH="100%" 
+            flexDirection="column"
+            minH="100%"
+            border="none"
           >
             <CardBody flex="1">
               <Box
                 display="flex"
-                justifyContent="center" 
-                alignItems="center" 
-                h="200px" 
+                justifyContent="center"
+                alignItems="center"
+                h="200px"
+                mb={4}
               >
                 <Image
                   src={product.thumbnail}
                   alt={product.name}
-                  objectFit="contain" 
-                  maxH="100%" 
+                  objectFit="contain"
+                  maxH="100%"
                   maxW="100%"
+                  borderRadius="md"
+                  boxShadow="lg"
                 />
               </Box>
-              <Stack mt="6" spacing="3">
-                <Heading size="md" color="white">
+              <Stack mt="6" spacing="3" color="white">
+                <Heading
+                  size="md"
+                  fontWeight="bold"
+                  textAlign="center"
+                  color="blue.50"
+                  textShadow="2px 2px 4px rgba(0, 0, 0, 0.8)"
+                >
                   {product.title}
                 </Heading>
-                <Text color="gray.300" noOfLines={3}>
+                <Text
+                  color="gray.200"
+                  noOfLines={3}
+                  textAlign="center"
+                  textShadow="1px 2px 3px rgba(0, 0, 0, 0.7)"
+                >
                   {product.description}
                 </Text>
-                <Text color="blue.300" fontSize="2xl" fontWeight="bold">
+                <Text
+                  color="white"
+                  fontSize="2xl"
+                  fontWeight="bold"
+                  textAlign="center"
+                  textShadow="2px 2px 5px rgba(0, 0, 0, 0.8)"
+                >
                   ${product.price}
                 </Text>
               </Stack>
             </CardBody>
-            <Divider opacity="0.2" />
-            <CardFooter>
-              <ButtonGroup spacing="2">
+            <Divider opacity="0.3" />
+            <CardFooter justify="center">
+              <ButtonGroup spacing="4">
                 <Link to={`/item/${product.id}`}>
                   <Button
-                    bgGradient="linear(to-r, blue.400, blue.600)"
+                    bg="black"
                     color="white"
-                    _hover={{
-                      bgGradient: "linear(to-r, blue.600, blue.800)",
-                    }}
+                    _hover={{ bg: "white", color: "black", transform: "scale(1.05)" }}
                     size="lg"
                   >
-                    Ir a Detalle
+                    Ver Detalles
                   </Button>
                 </Link>
               </ButtonGroup>
@@ -87,5 +105,9 @@ export const ItemListContainer = ({ products }) => {
         ))}
       </Grid>
     </Box>
+
+
+
+
   );
 };

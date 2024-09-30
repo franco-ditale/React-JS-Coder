@@ -1,23 +1,18 @@
 import {
   Box,
   Flex,
-  Avatar,
   Button,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
-  MenuDivider,
-  useColorModeValue,
   Stack,
-  useColorMode,
-  Center,
+  useColorMode
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { CartWidget } from "../CartWidget";
 import { Link } from "react-router-dom";
 import { useItemsCollection } from "../../hooks";
-/* import { createProductsFirestore } from "../../helpers"; */
 
 export const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -26,70 +21,43 @@ export const Navbar = () => {
 
   return (
     <>
-      <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
+      <Box bgGradient="linear(to-r, teal.400, cyan.600)" px={4} boxShadow="lg">
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <Box>
-            <Link to="/">
+            <Link to="/" fontSize="x1" fontWeight="bold" color="white" textShadow="1px 1px 4px rgba(0, 0, 0, 0.6) bk">
               PipoStore
             </Link>
           </Box>
-          <Box alignContent={"flex-start"} width={"100%"} marginLeft={30}>
+          <Box width={"100%"} ml={10}>
             <Menu>
-              {/* <Link to="/events" style={{ marginLeft: 30 }}>Eventos</Link> */}
-              <MenuButton as={Link} cursor="pointer" marginLeft={30}>
+              <MenuButton as={Button} ml={4} bg="black" color="white" _hover={{ bg: "gray.200", color: "teal.800" }}>
                 Dynamic Menu
               </MenuButton>
-              <MenuList height={"200px"} overflowY={"scroll"}>
+              <MenuList maxH={"200px"} overflowY={"scroll"}>
                 {items.map((category) => (
-                  <MenuItem key={category.slug}><Link to={`/category/${category.slug}`}>{category.name}</Link></MenuItem>
+                  <MenuItem key={category.slug}>
+                    <Link to={`/category/${category.slug}`}>{category.name}</Link>
+                  </MenuItem>
                 ))}
               </MenuList>
             </Menu>
-            {/* <Button onClick={() => createProductsFirestore('products')}>Crear productos</Button> */}
           </Box>
           <Flex alignItems={"center"}>
             <Stack direction={"row"} spacing={7}>
               <CartWidget />
-              <Button onClick={toggleColorMode}>
+              <Button
+                onClick={toggleColorMode}
+                bg="white"
+                color="teal.600"
+                _hover={{ bg: "gray.200", color: "teal.800" }}
+              >
                 {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
               </Button>
-
-              <Menu>
-                <MenuButton
-                  as={Button}
-                  rounded={"full"}
-                  variant={"link"}
-                  cursor={"pointer"}
-                  minW={0}
-                >
-                  <Avatar
-                    size={"sm"}
-                    src={"https://avatars.dicebear.com/api/male/username.svg"}
-                  />
-                </MenuButton>
-                <MenuList alignItems={"center"}>
-                  <br />
-                  <Center>
-                    <Avatar
-                      size={"2xl"}
-                      src={"https://avatars.dicebear.com/api/male/username.svg"}
-                    />
-                  </Center>
-                  <br />
-                  <Center>
-                    <p>Username</p>
-                  </Center>
-                  <br />
-                  <MenuDivider />
-                  <MenuItem>Your Servers</MenuItem>
-                  <MenuItem>Account Settings</MenuItem>
-                  <MenuItem>Logout</MenuItem>
-                </MenuList>
-              </Menu>
             </Stack>
           </Flex>
         </Flex>
       </Box>
+
     </>
   );
 };
