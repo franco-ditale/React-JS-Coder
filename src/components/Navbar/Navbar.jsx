@@ -16,7 +16,6 @@ import { useItemsCollection } from "../../hooks";
 
 export const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-
   const { items } = useItemsCollection("categories");
 
   return (
