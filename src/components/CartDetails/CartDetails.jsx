@@ -52,6 +52,7 @@ export const CartDetails = () => {
               borderRadius="md"
               alignItems="center"
               boxShadow="sm"
+              bgGradient="linear(to-r, teal.400, cyan.600)"
             >
               <Image
                 src={item.thumbnail}
@@ -67,13 +68,14 @@ export const CartDetails = () => {
                 </Text>
                 <HStack spacing={4} mt={2}>
                   <Text>Precio: ${item.price.toFixed(2)}</Text>
-                  <HStack>
+                  <HStack  borderRadius="md" p={2}>
                     <IconButton
                       aria-label="Disminuir cantidad"
                       icon={<MinusIcon />}
                       size="sm"
                       onClick={() => removeItem(item)}
                       isDisabled={item.qtyItem === 1}
+                      colorScheme="red"  // Botón disminuir en rojo
                     />
                     <Text>{item.qtyItem}</Text>
                     <IconButton
@@ -82,6 +84,7 @@ export const CartDetails = () => {
                       size="sm"
                       onClick={() => addItem(item)}
                       isDisabled={item.qtyItem >= item.stock}
+                      colorScheme="green"  // Botón aumentar en verde
                     />
                   </HStack>
                 </HStack>
@@ -96,6 +99,7 @@ export const CartDetails = () => {
                   icon={<DeleteIcon />}
                   colorScheme="red"
                   variant="outline"
+                  bg = "white"
                   onClick={() => handleDeleteItem(item)}
                 />
               </HStack>
@@ -107,12 +111,11 @@ export const CartDetails = () => {
               Total: ${total.toFixed(2)}
             </Text>
             <Spacer />
-            <Link to="/payment">
-              Continuar al pago
-            </Link>
+            <Link to="/payment">Continuar al pago</Link>
           </Flex>
         </VStack>
       )}
     </Box>
+
   );
 };
